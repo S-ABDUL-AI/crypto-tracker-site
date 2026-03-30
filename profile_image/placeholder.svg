@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Profile photo placeholder</title>
+  <desc id="desc">Replace profile_image/sherriff_profile_pic.jpg with your photo</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ececec"/>
+      <stop offset="100%" style="stop-color:#d4d4d8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#bg)"/>
+  <text x="80" y="92" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="36" font-weight="600" fill="#3f3f46">SA</text>
+</svg>

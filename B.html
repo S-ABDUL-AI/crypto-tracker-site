@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sherriff A. Sherriff — AI, revenue, decision and policy systems consultant.">
+<title>Sherriff A. Sherriff</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --color-bg: #faf9f7;
+  --color-bg-subtle: #f0ebe3;
+  --color-text: #1c1917;
+  --color-text-muted: #534a42;
+  --color-border: rgba(28, 25, 23, 0.14);
+  --color-accent: #155d86;
+  --color-accent-hover: #0d4a66;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-ui: "Source Sans 3", system-ui, sans-serif;
+  --font-sans: var(--font-ui);
+  --radius: 8px;
+  --shadow-nav: 0 1px 0 rgba(0, 0, 0, 0.04);
+  --section-y: clamp(3rem, 7vw, 4.5rem);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--section-y) clamp(1.25rem, 5vw, 1.75rem);
+  text-align: center;
+}
+
+.container > h2:first-child {
+  margin-top: 0;
+}
+
+section.container + section.container {
+  padding-top: calc(var(--section-y) * 0.85);
+  border-top: 1px solid var(--color-border);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: #111111;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.hero-legal-name {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 auto var(--space-sm);
+  max-width: 42rem;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  color: var(--color-accent);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin: 0 0 var(--space-md);
+}
+
+h3 {
+  font-size: 1.125rem;
+  margin: 0 0 var(--space-xs);
+  color: var(--color-text);
+}
+
+.tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 500;
+  margin: 0 0 var(--space-md);
+  color: var(--color-text);
+}
+
+.subtext {
+  max-width: 42rem;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.container > .subtext:last-of-type {
+  margin-bottom: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin: var(--space-xs) var(--space-xs) var(--space-xs) 0;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* IMAGE */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto var(--space-lg);
+  display: block;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* LIST */
+ul:not(.plain) {
+  text-align: left;
+  max-width: 40rem;
+  margin: 0 auto var(--space-md);
+  padding-left: 1.35rem;
+  line-height: 1.75;
+}
+
+ul:not(.plain) li {
+  margin-bottom: var(--space-xs);
+}
+
+ul:not(.plain) li:last-child {
+  margin-bottom: 0;
+}
+
+.container h2 + ul {
+  margin-top: var(--space-sm);
+}
+
+/* EXPERIENCE */
+.experience {
+  text-align: left;
+  max-width: 42rem;
+  margin: var(--space-md) auto 0;
+}
+
+.job {
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.job:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.job p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* TESTIMONIALS */
+.testimonial-block {
+  max-width: 36rem;
+  margin: 0 auto var(--space-xl);
+}
+
+.testimonial-block:last-of-type {
+  margin-bottom: 0;
+}
+
+.testimonial-block blockquote {
+  margin: 0 0 var(--space-sm);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.testimonial-block blockquote p {
+  margin: 0;
+}
+
+.testimonial-block cite {
+  font-style: normal;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* CONTACT */
+.contact-lines {
+  margin-top: var(--space-lg);
+}
+
+.contact-lines p {
+  margin: var(--space-xs) 0;
+}
+
+.contact-lines a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-lines a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#contact .subtext {
+  margin-bottom: var(--space-md);
+}
+
+footer {
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="logo">Sherriff A. Sherriff</a>
+  <nav aria-label="Primary navigation">
+    <a href="index.html" class="active">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="projects.html">PROJECTS</a>
+    <a href="awards.html">AWARDS</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="blog.html">BLOG</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="container" aria-labelledby="hero-heading">
+    <!-- Photo: add profile_image/sherriff_profile_pic.jpg (same path as B.html); SVG shows if missing -->
+    <img
+      src="profile_image/sherriff_profile_pic.jpg"
+      alt="Sherriff A. Sherriff"
+      class="profile-img"
+      width="160"
+      height="160"
+      loading="eager"
+      decoding="async"
+      onerror="this.onerror=null;this.src='profile_image/placeholder.svg';">
+
+    <h1 id="hero-heading">Sherriff A. Sherriff</h1>
+
+    <p class="tagline">
+      AI Revenue, Decision &amp; Policy Systems Consultant
+    </p>
+
+    <p class="subtext">
+      I help organizations turn data into clear decisions, automated systems, and measurable outcomes.
+    </p>
+
+    <p class="cta-row">
+      <a href="#" class="btn">View Sample Report</a>
+      <a href="#" class="btn">Work With Me</a>
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="container" id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Technology, Business &amp; Policy</h2>
+
+    <p class="subtext">
+      My work sits at the intersection of AI, business systems, and public decision-making — translating complex data into insights that drive both organizational performance and policy impact.
+    </p>
+
+    <ul>
+      <li>Bridge technical systems with real-world decision-making</li>
+      <li>Understand the economic and institutional impact of AI</li>
+      <li>Design data systems that improve transparency and efficiency</li>
+      <li>Apply analytics to both business and public sector challenges</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="container" aria-labelledby="help-heading">
+    <h2 id="help-heading">How I Help Organizations</h2>
+
+    <ul>
+      <li>Turn data into actionable insights for faster decisions</li>
+      <li>Automate reporting and operations to improve efficiency</li>
+      <li>Identify growth opportunities and performance gaps</li>
+      <li>Build systems that scale outcomes across teams</li>
+    </ul>
+
+    <h2>Services</h2>
+    <ul>
+      <li>AI Reporting &amp; Decision Systems – Clear insights for business and policy environments</li>
+      <li>Automation &amp; Workflow Optimization – Reduce manual processes and improve efficiency</li>
+      <li>Economic &amp; Performance Analysis – Identify opportunities across operations and strategy</li>
+    </ul>
+  </section>
+
+  <!-- SAMPLE WORK -->
+  <section class="container" id="sample-work" aria-labelledby="sample-work-heading">
+    <h2 id="sample-work-heading">Sample Work</h2>
+
+    <p class="subtext">
+      Examples of how data is transformed into actionable insights and decision systems.
+    </p>
+
+    <a href="#" class="btn">View Sample Report</a>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="container" id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Selected Systems &amp; Projects</h2>
+
+    <p class="subtext">
+      AI and analytics systems built to solve real-world business and operational challenges.
+    </p>
+
+    <a href="#" class="btn">Explore Projects</a>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="container" aria-labelledby="impact-heading">
+    <h2 id="impact-heading">Selected Impact</h2>
+
+    <ul>
+      <li>+30% revenue growth through data-driven strategy</li>
+      <li>15% cost reduction using optimization models</li>
+      <li>20% faster decision-making with analytics systems</li>
+    </ul>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="container" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+
+    <div class="experience">
+      <div class="job">
+        <h3>Data Scientist</h3>
+        <p>Applied analytics, experimentation, and modeling to drive organizational performance.</p>
+      </div>
+
+      <div class="job">
+        <h3>Analytics &amp; Strategy</h3>
+        <p>Delivered insights that improved decision-making across business operations.</p>
+      </div>
+
+      <div class="job">
+        <h3>AI &amp; Systems Development</h3>
+        <p>Built scalable systems for reporting, forecasting, and optimization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="container" aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading">What Clients &amp; Teams Say</h2>
+
+    <div class="testimonial-block">
+      <blockquote>
+        <p>“Sherriff’s insights improved how we make decisions across teams.”</p>
+      </blockquote>
+      <cite>— Operations Team</cite>
+    </div>
+
+    <div class="testimonial-block">
+      <blockquote>
+        <p>“He translates complex data into clear, strategic direction.”</p>
+      </blockquote>
+      <cite>— Project Partner</cite>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="container" id="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Work With Me</h2>
+
+    <p class="subtext">Book a short call to explore how AI and data systems can improve your organization.</p>
+
+    <a href="#" class="btn">Book a Strategy Call</a>
+
+    <div class="contact-lines">
+      <p>Email: <a href="mailto:sherriffhamid001@gmail.com">sherriffhamid001@gmail.com</a></p>
+      <p>Phone: <a href="tel:+14242222856">424-222-2856</a></p>
+      <p class="contact-linkedin-wrap"><a class="footer-linkedin" href="https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/" target="_blank" rel="noopener noreferrer"><svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn profile</span></a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Sherriff A. Sherriff</p>
+  <p class="footer-meta">
+    <a href="index.html#about">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="awards.html">Awards</a>
+    <a href="blog.html">Blog</a>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/" target="_blank" rel="noopener noreferrer"><svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+  </p>
+</footer>
+
+</body>
+</html>

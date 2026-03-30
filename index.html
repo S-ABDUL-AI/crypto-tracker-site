@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sherriff A. Sherriff — AI, revenue, decision and policy systems consultant. Consulting services and credentials.">
+<title>Sherriff A. Sherriff</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23155d86'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Editorial / premium magazine feel: display serif + reading serif + clean UI sans */
+:root {
+  --color-bg: #faf9f7;
+  --color-bg-subtle: #f0ebe3;
+  --color-text: #1c1917;
+  --color-text-muted: #534a42;
+  --color-border: rgba(28, 25, 23, 0.14);
+  --color-accent: #155d86;
+  --color-accent-hover: #0d4a66;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-ui: "Source Sans 3", system-ui, sans-serif;
+  --radius: 2px;
+  --section-y: clamp(3.5rem, 8vw, 5.25rem);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* —— Hero —— */
+.hero-wrap {
+  background: linear-gradient(180deg, #f7f4ef 0%, #faf9f7 55%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-grid {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(2.75rem, 7vw, 4.5rem) clamp(1.35rem, 5vw, 2rem);
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: minmax(200px, 240px) 1fr;
+    justify-items: start;
+    text-align: left;
+    gap: 2.5rem 3rem;
+  }
+
+  .hero-media {
+    justify-self: center;
+  }
+
+  .hero-copy {
+    max-width: 36rem;
+  }
+}
+
+.profile-img {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 40px rgba(28, 25, 23, 0.06);
+}
+
+.hero-copy h1 {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: clamp(1.9rem, 4.2vw, 2.65rem);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-variant-ligatures: common-ligatures;
+}
+
+.hero-legal-name {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md);
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-muted);
+}
+
+.hero-lead {
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+  max-width: 36rem;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero-cta {
+    justify-content: flex-start;
+  }
+
+  /* Easier reading for long lists: left-align on large screens */
+  .prose-flow {
+    text-align: left;
+  }
+
+  .prose-flow > .section-kicker {
+    text-align: left;
+  }
+
+  .prose-flow > h2 {
+    text-align: left;
+  }
+
+  .prose-flow .subtext {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .prose-flow ul:not(.plain) {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* —— Credibility strip —— */
+.cred-strip {
+  background: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) clamp(1.25rem, 5vw, 1.75rem);
+}
+
+.cred-strip-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cred-strip .cred-title {
+  font-family: var(--font-ui);
+  margin: 0 0 var(--space-sm);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.cred-strip .cred-summary {
+  margin: 0 0 var(--space-md);
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.75;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cred-links {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.cred-links a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.cred-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cred-links .sep {
+  color: #bbb;
+  margin: 0 0.35rem;
+}
+
+/* —— Sections —— */
+.section-kicker {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md);
+}
+
+.container {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: var(--section-y) clamp(1.35rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.container > h2:first-child,
+.container > .section-kicker:first-child + h2 {
+  margin-top: 0;
+}
+
+section.container + section.container {
+  padding-top: calc(var(--section-y) * 0.9);
+  border-top: 1px solid var(--color-border);
+}
+
+.band-muted {
+  background: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.band-muted .container {
+  border-top: none;
+}
+
+section.band-muted + section.container {
+  border-top: none;
+}
+
+h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+h2 {
+  color: var(--color-text);
+  font-size: clamp(1.65rem, 3.2vw, 2.125rem);
+  margin: 0 0 var(--space-md);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin: 0 0 var(--space-xs);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.subtext {
+  max-width: 36rem;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.impact-note {
+  max-width: 34rem;
+  margin: var(--space-md) auto 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-ui);
+  padding: 0.7rem 1.35rem;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.15s ease;
+  border: 1px solid var(--color-accent);
+}
+
+.btn:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-secondary:hover {
+  background: rgba(21, 93, 134, 0.07);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+ul:not(.plain) {
+  text-align: left;
+  max-width: 100%;
+  margin: 0 auto var(--space-md);
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+ul:not(.plain) li {
+  margin-bottom: var(--space-xs);
+}
+
+ul:not(.plain) li:last-child {
+  margin-bottom: 0;
+}
+
+.container h2 + ul,
+.container .section-kicker + h2 + ul {
+  margin-top: var(--space-sm);
+}
+
+.services-split h3 {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: var(--space-lg) 0 var(--space-sm);
+}
+
+.services-split h3:first-of-type {
+  margin-top: var(--space-md);
+}
+
+.experience {
+  text-align: left;
+  max-width: 100%;
+  margin: var(--space-md) auto 0;
+}
+
+.job {
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.job:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.job p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.cred-footer-link {
+  margin-top: var(--space-lg);
+  font-size: 1rem;
+  font-family: var(--font-serif);
+}
+
+.cred-footer-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-family: var(--font-ui);
+  text-decoration: none;
+}
+
+.cred-footer-link a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.testimonials-wrap {
+  max-width: 100%;
+  margin: var(--space-lg) auto 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonial-block {
+  margin: 0;
+  padding: var(--space-lg) 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+}
+
+.testimonial-block:last-child {
+  border-bottom: none;
+}
+
+.testimonial-block blockquote {
+  margin: 0 0 var(--space-md);
+  font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.testimonial-block blockquote p {
+  margin: 0;
+}
+
+.testimonial-block cite {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contact-lines {
+  margin-top: var(--space-lg);
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.contact-lines p {
+  margin: var(--space-xs) 0;
+}
+
+.contact-lines a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-lines a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#contact .subtext {
+  margin-bottom: var(--space-md);
+}
+
+footer {
+  font-family: var(--font-ui);
+  text-align: center;
+  padding: var(--space-xl) var(--space-sm);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer .footer-meta {
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+footer .footer-meta a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer .footer-meta a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer .footer-legal {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  opacity: 0.95;
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="logo">Sherriff A. Sherriff</a>
+  <nav aria-label="Primary navigation">
+    <a href="index.html" class="active">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="projects.html">PROJECTS</a>
+    <a href="awards.html">AWARDS</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="blog.html">BLOG</a>
+    <a class="nav-linkedin" href="https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/" target="_blank" rel="noopener noreferrer" aria-label="Sherriff A. Sherriff on LinkedIn"><svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO + CREDIBILITY -->
+  <section class="hero-wrap" aria-labelledby="hero-heading">
+    <div class="hero-grid">
+      <div class="hero-media">
+        <img
+          src="profile_image/sherriff_profile_pic.jpg"
+          alt="sherriff A. sherriff"
+          class="profile-img"
+          width="168"
+          height="168"
+          loading="eager"
+          decoding="async"
+          onerror="this.onerror=null;this.src='profile_image/placeholder.svg';">
+      </div>
+      <div class="hero-copy">
+        <h1 id="hero-heading">sherriff A. sherriff</h1>
+        <p class="tagline">AI Revenue, Decision &amp; Policy Systems Consultant</p>
+        <p class="hero-lead">
+          I help organizations turn data into clear decisions, automated systems, and measurable outcomes — at the intersection of analytics, operations, and policy.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Work With Me</a>
+          <a href="#sample-work" class="btn btn-secondary">View sample work</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cred-strip">
+      <div class="cred-strip-inner">
+        <p class="cred-title">Credibility</p>
+        <p class="cred-summary">
+          M.S. Economics · Senior-level data science, AI &amp; analytics · Experience across business, nonprofit, and public-sector programs (including work with global development partners).
+        </p>
+        <p class="cred-links">
+          <a href="awards.html">Awards &amp; fellowships</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="projects.html">Systems &amp; deployed projects</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="container prose-flow" id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Technology, Business &amp; Policy</h2>
+    <p class="subtext">
+      My work sits at the intersection of AI, business systems, and public decision-making — translating complex data into insights that drive both organizational performance and policy impact.
+    </p>
+    <ul>
+      <li>Bridge technical systems with real-world decision-making</li>
+      <li>Understand the economic and institutional impact of AI</li>
+      <li>Design data systems that improve transparency and efficiency</li>
+      <li>Apply analytics to both business and public sector challenges</li>
+    </ul>
+  </section>
+
+  <!-- CONSULTING -->
+  <section class="band-muted" aria-labelledby="consulting-heading">
+    <div class="container services-split prose-flow">
+      <p class="section-kicker">Consulting</p>
+      <h2 id="consulting-heading">How I Help Organizations</h2>
+      <ul>
+        <li>Turn data into actionable insights for faster decisions</li>
+        <li>Automate reporting and operations to improve efficiency</li>
+        <li>Identify growth opportunities and performance gaps</li>
+        <li>Build systems that scale outcomes across teams</li>
+      </ul>
+
+      <h3>Services</h3>
+      <ul>
+        <li>AI Reporting &amp; Decision Systems – Clear insights for business and policy environments</li>
+        <li>Automation &amp; Workflow Optimization – Reduce manual processes and improve efficiency</li>
+        <li>Economic &amp; Performance Analysis – Identify opportunities across operations and strategy</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SAMPLE WORK -->
+  <section class="container" id="sample-work" aria-labelledby="sample-work-heading">
+    <p class="section-kicker">Proof of work</p>
+    <h2 id="sample-work-heading">Sample Work</h2>
+    <p class="subtext">
+      Examples of how data is transformed into actionable insights and decision systems. (Replace the link below with your PDF, deck, or case write-up when ready.)
+    </p>
+    <a href="#" class="btn">View Sample Report</a>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="container" id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Selected Systems &amp; Projects</h2>
+    <p class="subtext">
+      AI and analytics systems built to solve real-world business and operational challenges.
+    </p>
+    <a href="projects.html" class="btn btn-secondary">Explore Projects</a>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="container prose-flow" aria-labelledby="impact-heading">
+    <p class="section-kicker">Outcomes</p>
+    <h2 id="impact-heading">Selected Impact</h2>
+    <ul>
+      <li>+30% revenue growth through data-driven strategy</li>
+      <li>15% cost reduction using optimization models</li>
+      <li>20% faster decision-making with analytics systems</li>
+    </ul>
+    <p class="impact-note">Illustrative results from past engagements; outcomes depend on context, data, and implementation.</p>
+  </section>
+
+  <!-- EXPERIENCE + CREDENTIALS BRIDGE -->
+  <section class="band-muted" aria-labelledby="experience-heading">
+    <div class="container prose-flow">
+      <p class="section-kicker">Background</p>
+      <h2 id="experience-heading">Experience</h2>
+      <div class="experience">
+        <div class="job">
+          <h3>Data Scientist</h3>
+          <p>Applied analytics, experimentation, and modeling to drive organizational performance.</p>
+        </div>
+        <div class="job">
+          <h3>Analytics &amp; Strategy</h3>
+          <p>Delivered insights that improved decision-making across business operations.</p>
+        </div>
+        <div class="job">
+          <h3>AI &amp; Systems Development</h3>
+          <p>Built scalable systems for reporting, forecasting, and optimization.</p>
+        </div>
+      </div>
+      <p class="cred-footer-link">
+        Honors, fellowships, and program details are on the <a href="awards.html">Awards</a> page.
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="container" aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading">What Clients &amp; Teams Say</h2>
+    <div class="testimonials-wrap">
+      <div class="testimonial-block">
+        <blockquote>
+          <p>“Sherriff’s insights improved how we make decisions across teams.”</p>
+        </blockquote>
+        <cite>— Operations Team</cite>
+      </div>
+      <div class="testimonial-block">
+        <blockquote>
+          <p>“He translates complex data into clear, strategic direction.”</p>
+        </blockquote>
+        <cite>— Project Partner</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="container" id="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Work With Me</h2>
+    <p class="subtext">Book a short call to explore how AI and data systems can improve your organization.</p>
+    <a href="#" class="btn">Book a Strategy Call</a>
+    <div class="contact-lines">
+      <p>Email: <a href="mailto:sherriffhamid001@gmail.com">sherriffhamid001@gmail.com</a></p>
+      <p>Phone: <a href="tel:+14242222856">424-222-2856</a></p>
+      <p class="contact-linkedin-wrap"><a class="footer-linkedin" href="https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/" target="_blank" rel="noopener noreferrer"><svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn profile</span></a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Sherriff A. Sherriff</p>
+  <p class="footer-meta">
+    <a href="index.html#about">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="awards.html">Awards</a>
+    <a href="blog.html">Blog</a>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/" target="_blank" rel="noopener noreferrer"><svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+  </p>
+</footer>
+
+</body>
+</html>

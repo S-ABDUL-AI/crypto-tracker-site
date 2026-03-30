@@ -1,0 +1,3 @@
+﻿app_repos/
+*.backup*
+.DS_Store

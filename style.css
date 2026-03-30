@@ -1,0 +1,282 @@
+/* ========== Site-wide navbar (all pages: link style.css) ========== */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap");
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #222;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.navbar a.logo:hover,
+.navbar a.logo:focus-visible {
+  opacity: 0.88;
+}
+
+.navbar a.logo:focus-visible {
+  outline: 2px solid #4dabf7;
+  outline-offset: 4px;
+}
+
+.navbar nav {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  border-radius: 3px;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #4dabf7;
+}
+
+.navbar nav a:focus-visible {
+  outline: 2px solid #4dabf7;
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .navbar .logo {
+    letter-spacing: 0.03em;
+    font-size: 0.72rem;
+  }
+
+  .navbar nav {
+    justify-content: center;
+  }
+
+  .navbar nav a {
+    white-space: normal;
+  }
+
+  .navbar .nav-linkedin {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 0.25rem;
+  }
+}
+
+/* LinkedIn (navbar icon + footer links) */
+.linkedin-icon path {
+  fill: #0a66c2;
+}
+
+.navbar .nav-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+  line-height: 1;
+  border-radius: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.navbar .nav-linkedin:hover,
+.navbar .nav-linkedin:focus-visible {
+  opacity: 0.92;
+}
+
+.navbar .nav-linkedin:focus-visible {
+  outline: 2px solid #4dabf7;
+  outline-offset: 4px;
+}
+
+.navbar .nav-linkedin .linkedin-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.navbar .nav-linkedin:hover .linkedin-icon path,
+.navbar .nav-linkedin:focus-visible .linkedin-icon path {
+  fill: #70b5f9;
+}
+
+.footer-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+}
+
+.footer-linkedin .linkedin-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+footer .footer-meta .footer-linkedin,
+.page-footer .footer-linkedin {
+  color: inherit;
+}
+
+footer .footer-meta .footer-linkedin:hover span,
+footer .footer-meta .footer-linkedin:focus-visible span,
+.page-footer .footer-linkedin:hover span,
+.page-footer .footer-linkedin:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer.dark-bg .footer-linkedin {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+footer.dark-bg .footer-linkedin:hover,
+footer.dark-bg .footer-linkedin:focus-visible {
+  color: #fff;
+}
+
+footer.dark-bg .footer-linkedin:hover .linkedin-icon path,
+footer.dark-bg .footer-linkedin:focus-visible .linkedin-icon path {
+  fill: #70b5f9;
+}
+
+.contact-linkedin-wrap {
+  margin-top: 1rem;
+}
+
+footer .footer-meta {
+  margin-top: 0.75rem;
+}
+
+footer .footer-meta a {
+  margin: 0 0.5rem;
+  color: #534a42;
+  text-decoration: none;
+}
+
+footer:not(.dark-bg) .footer-meta a:hover {
+  color: #155d86;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Awards & Fellowships Section - -like */
+
+/* Container for Awards Section */
+.awards-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.awards-section h2 {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 2.5rem;
+  color: #111;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.award-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.award-item:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-4px);
+}
+
+.award-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.award-details {
+  flex: 1;
+}
+
+.award-details h3 {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #155d86;
+}
+
+.award-details p {
+  margin: 6px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.award-details a {
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+  color: #155d86;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.award-details a:hover {
+  color: #0d4a66;
+}
+
+.divider {
+  width: 60%;
+  height: 2px;
+  background: #ddd;
+  margin: 60px auto;
+}
