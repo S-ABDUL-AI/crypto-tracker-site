@@ -649,6 +649,216 @@ footer .footer-legal {
             <li><strong>What to do next:</strong> scale winning tactics, fix underperforming locations, and prioritize next-cycle tests.</li>
           </ol>
         </div>
+
+        <div class="prose-flow" style="margin-top: 1rem;">
+          <h4>Storytelling visualization (OWID: mcv1, campaign year 2017)</h4>
+          <p class="subtext">Four-step view: overall shift, biggest movers, baseline vs change pattern, and an action-ready shortlist.</p>
+
+          <div style="display:grid; grid-template-columns: 1fr; gap: 1.1rem;">
+            <div id="story-chart-happened" style="min-height: 320px;"></div>
+            <div id="story-chart-where" style="min-height: 320px;"></div>
+            <div id="story-chart-why" style="min-height: 320px;"></div>
+            <div id="story-chart-next" style="min-height: 320px;"></div>
+          </div>
+
+          <noscript>
+            <p class="subtext">Enable JavaScript to view the interactive storytelling charts.</p>
+          </noscript>
+        </div>
+
+        <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+        <script>
+          (function () {
+            function fmt1(x) { return (Math.round(x * 10) / 10).toFixed(1); }
+
+            function safeText(v) { return (v === null || v === undefined) ? "" : String(v); }
+
+            function renderCharts(story) {
+              var meta = story.meta || {};
+
+              // ---------------------------
+              // 1) What happened? Trend
+              // ---------------------------
+              var trend = story.trend_series || [];
+              var x1 = trend.map(function (d) { return d.year; });
+              var y1 = trend.map(function (d) { return d.avg_coverage; });
+
+              var campaignYear = meta.campaign_year || 2017;
+
+              var trace1 = {
+                x: x1,
+                y: y1,
+                mode: "lines+markers",
+                type: "scatter",
+                marker: { size: 6 },
+                line: { width: 2, color: "#2563eb" },
+                name: "Global avg coverage (%)"
+              };
+
+              var layout1 = {
+                title: "What happened? Global coverage shift around " + campaignYear,
+                xaxis: { title: "Year" },
+                yaxis: { title: "Coverage (%)", range: [0, 100] },
+                template: "plotly_white",
+                shapes: [
+                  {
+                    type: "line",
+                    x0: campaignYear,
+                    x1: campaignYear,
+                    y0: 0,
+                    y1: 1,
+                    xref: "x",
+                    yref: "paper",
+                    line: { color: "#dc2626", width: 2, dash: "dash" }
+                  }
+                ]
+              };
+
+              Plotly.newPlot("story-chart-happened", [trace1], layout1, { responsive: true, displayModeBar: false });
+
+              // ---------------------------
+              // 2) Where? Biggest movers
+              // ---------------------------
+              var top = story.top_movers || [];
+              var bottom = story.bottom_movers || [];
+              var movers = top.concat(bottom);
+
+              movers.sort(function (a, b) { return b.delta_pp - a.delta_pp; });
+
+              var x2 = movers.map(function (d) { return d.country; });
+              var y2 = movers.map(function (d) { return d.delta_pp; });
+              var colors2 = movers.map(function (d) { return d.delta_pp >= 0 ? "#16a34a" : "#dc2626"; });
+
+              var trace2 = {
+                x: x2,
+                y: y2,
+                type: "bar",
+                marker: { color: colors2 },
+                name: "Delta (After - Before, pp)"
+              };
+
+              var layout2 = {
+                title: "Where it happened? Biggest movers (delta in percentage points)",
+                template: "plotly_white",
+                xaxis: {
+                  title: "Country",
+                  tickangle: -35,
+                  automargin: true
+                },
+                yaxis: { title: "Delta (pp)" },
+                showlegend: false,
+                margin: { b: 120 }
+              };
+
+              Plotly.newPlot("story-chart-where", [trace2], layout2, { responsive: true, displayModeBar: false });
+
+              // ---------------------------
+              // 3) Why? Baseline vs change
+              // ---------------------------
+              var scatter = story.scatter_points || [];
+              var x3 = scatter.map(function (d) { return d.baseline_pp; });
+              var y3 = scatter.map(function (d) { return d.delta_pp; });
+              var texts3 = scatter.map(function (d) { return safeText(d.country) + "<br/>Baseline: " + fmt1(d.baseline_pp) + "%<br/>Delta: " + fmt1(d.delta_pp) + " pp"; });
+
+              var trace3 = {
+                x: x3,
+                y: y3,
+                mode: "markers",
+                type: "scatter",
+                marker: { size: 10, color: "#155d86" },
+                text: texts3,
+                hovertemplate: "%{text}<extra></extra>"
+              };
+
+              // Simple least-squares trend line for visual guidance
+              var n = x3.length;
+              var meanX = x3.reduce(function (a, b) { return a + b; }, 0) / (n || 1);
+              var meanY = y3.reduce(function (a, b) { return a + b; }, 0) / (n || 1);
+              var num = 0, den = 0;
+              for (var i = 0; i < n; i++) {
+                num += (x3[i] - meanX) * (y3[i] - meanY);
+                den += (x3[i] - meanX) * (x3[i] - meanX);
+              }
+              var slope = den === 0 ? 0 : num / den;
+              var intercept = meanY - slope * meanX;
+
+              var xMin = Math.min.apply(null, x3);
+              var xMax = Math.max.apply(null, x3);
+              var xLine = [xMin, xMax];
+              var yLine = [intercept + slope * xMin, intercept + slope * xMax];
+
+              var trace3b = {
+                x: xLine,
+                y: yLine,
+                mode: "lines",
+                type: "scatter",
+                line: { width: 2, color: "#f59e0b" },
+                name: "Trend (visual)"
+              };
+
+              var layout3 = {
+                title: "Why might it have happened? Baseline coverage vs change",
+                template: "plotly_white",
+                xaxis: { title: "Baseline coverage (%)" },
+                yaxis: { title: "Delta (pp)" },
+                showlegend: false
+              };
+
+              Plotly.newPlot("story-chart-why", [trace3, trace3b], layout3, { responsive: true, displayModeBar: false });
+
+              // ---------------------------
+              // 4) What next? Action table
+              // ---------------------------
+              var actions = story.action_shortlist || [];
+              var cols = ["country", "baseline_pp", "before_mean", "after_mean", "delta_pp", "action"];
+
+              var header = ["Country", "Baseline", "Before", "After", "Delta", "Recommendation"];
+              var cell = [[], [], [], [], [], []];
+              actions.forEach(function (r) {
+                cell[0].push(r.country);
+                cell[1].push(fmt1(r.baseline_pp) + "%");
+                cell[2].push(fmt1(r.before_mean) + "%");
+                cell[3].push(fmt1(r.after_mean) + "%");
+                cell[4].push(fmt1(r.delta_pp) + " pp");
+                cell[5].push(r.action);
+              });
+
+              var trace4 = {
+                type: "table",
+                header: {
+                  values: header,
+                  fill: { color: "#0f172a" },
+                  font: { color: "white", size: 12 },
+                  align: "left"
+                },
+                cells: {
+                  values: cell,
+                  fill: { color: ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#f8fafc"] },
+                  align: "left",
+                  font: { size: 11 }
+                }
+              };
+
+              var layout4 = {
+                title: "What should we do next? Action-ready shortlist",
+                template: "plotly_white",
+                margin: { l: 10, r: 10, t: 60, b: 10 }
+              };
+
+              Plotly.newPlot("story-chart-next", [trace4], layout4, { responsive: true, displayModeBar: false });
+            }
+
+            // Load story data
+            fetch("data_story_mcv1_2017.json")
+              .then(function (r) { return r.json(); })
+              .then(renderCharts)
+              .catch(function (err) {
+                var el = document.getElementById("story-chart-happened");
+                if (el) el.innerHTML = "<p class='subtext'>Could not load <code>data_story_mcv1_2017.json</code>. Please redeploy the site.</p>";
+                console.error(err);
+              });
+          })();
+        </script>
       </div>
 
       <div class="sample-category">
