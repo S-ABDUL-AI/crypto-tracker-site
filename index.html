@@ -633,7 +633,7 @@ footer .footer-legal {
     <p class="subtext">
       Examples of how data is transformed into actionable insights and decision systems. Organized by: Data Story Telling, Policy, Business Strategy, and Business Automation.
     </p>
-    <div class="prose-flow" style="margin-top: 1rem;">
+    <div class="sample-category-grid prose-flow" style="margin-top: 1rem;">
       <div class="sample-category">
         <h3>Data Story Telling</h3>
         <p class="subtext">A narrative-first view of insights so stakeholders instantly understand the “so what”.</p>
@@ -848,14 +848,22 @@ footer .footer-legal {
               Plotly.newPlot("story-chart-next", [trace4], layout4, { responsive: true, displayModeBar: false });
             }
 
-            // Load story data
-            fetch("data_story_mcv1_2017.json")
+            // Load story data (use absolute fallback in case of relative-path quirks)
+            var fetchUrl1 = new URL("data_story_mcv1_2017.json", window.location.href).toString();
+            var fetchUrl2 = "https://s-abdul-ai.github.io/crypto-tracker-site/data_story_mcv1_2017.json";
+
+            fetch(fetchUrl1)
               .then(function (r) { return r.json(); })
               .then(renderCharts)
               .catch(function (err) {
-                var el = document.getElementById("story-chart-happened");
-                if (el) el.innerHTML = "<p class='subtext'>Could not load <code>data_story_mcv1_2017.json</code>. Please redeploy the site.</p>";
-                console.error(err);
+                fetch(fetchUrl2)
+                  .then(function (r) { return r.json(); })
+                  .then(renderCharts)
+                  .catch(function (err2) {
+                    var el = document.getElementById("story-chart-happened");
+                    if (el) el.innerHTML = "<p class='subtext'>Could not load <code>data_story_mcv1_2017.json</code>. Please redeploy the site. (Fetch failed)</p>";
+                    console.error(err2 || err);
+                  });
               });
           })();
         </script>
