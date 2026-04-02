@@ -217,7 +217,7 @@ body.magazine-page {
 .sample-category-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-areas: "business-strategy business-automation policy data-storytelling";
+  grid-template-areas: "data-storytelling business-automation business-strategy policy";
   gap: 1.1rem;
 }
 
@@ -245,8 +245,8 @@ body.magazine-page {
   .sample-category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "business-strategy business-automation"
-      "policy data-storytelling";
+      "data-storytelling business-automation"
+      "business-strategy policy";
   }
 }
 
@@ -254,11 +254,21 @@ body.magazine-page {
   .sample-category-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "business-strategy"
+      "data-storytelling"
       "business-automation"
-      "policy"
-      "data-storytelling";
+      "business-strategy"
+      "policy";
   }
+}
+
+/* Make each category title look like a client-ready “box” header */
+.sample-category > h3 {
+  background: var(--mag-accent);
+  color: #ffffff;
+  padding: 1rem 0.75rem;
+  border-radius: 2px;
+  text-align: center;
+  margin: 0;
 }
 
 /* —— Awards list —— */
