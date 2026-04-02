@@ -1,3 +1,4 @@
-﻿app_repos/
+app_repos/
 *.backup*
 .DS_Store
+Thumbs.db

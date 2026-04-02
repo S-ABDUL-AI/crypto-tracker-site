@@ -633,7 +633,7 @@ footer .footer-legal {
     <p class="subtext">
       Examples of how data is transformed into actionable insights and decision systems. Organized by: Business Strategy, Business Automation, Policy, and Data Storytelling.
     </p>
-    <div class="sample-category-grid prose-flow" style="margin-top: 1rem; display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem;">
+    <div class="sample-category-grid prose-flow" style="margin-top: 1rem; display:none; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem;">
       <div class="sample-category sample-category--data-storytelling" style="grid-area: data-storytelling; min-width: 0;">
         <h3>Data Storytelling</h3>
         <p class="subtext">A narrative-first view of insights so stakeholders instantly understand the “so what”.</p>
@@ -666,8 +666,8 @@ footer .footer-legal {
           </noscript>
         </div>
 
-        <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-        <script>
+        <script type="text/plain" src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+        <script type="text/plain">
           (function () {
             function fmt1(x) { return (Math.round(x * 10) / 10).toFixed(1); }
 
@@ -893,7 +893,62 @@ footer .footer-legal {
         </p>
       </div>
     </div>
+    <div class="work-sample-dropdowns prose-flow" style="margin-top: 1rem;">
+      <div class="dropdown-mag">
+        <button type="button" onclick="toggleDropdown(this)">Data Storytelling ▾</button>
+        <div class="dropdown-body">
+          <div class="project-line">
+            <a href="https://drive.google.com/file/d/1vATfNU0TUw4YGH2IaPoyBc5cxW7QI_kV/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View sample report 1</a>
+            <span class="desc">Narrative-first storytelling for stakeholders: what, where, why, and next actions.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-mag">
+        <button type="button" onclick="toggleDropdown(this)">Business Automation ▾</button>
+        <div class="dropdown-body">
+          <div class="project-line">
+            <a href="https://drive.google.com/file/d/1hONbmxJJyuRvF4RaMARZ0yhGQeRuYc12/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View sample report 3</a>
+            <span class="desc">Automation-ready reporting workflows designed for repeatability.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-mag">
+        <button type="button" onclick="toggleDropdown(this)">Business Strategy ▾</button>
+        <div class="dropdown-body">
+          <div class="project-line">
+            <a href="https://public.tableau.com/app/profile/sherriff.abdul.hamid/viz/WalmartSalesAnalysisandPrediction/Dashboard2" target="_blank" rel="noopener noreferrer">Walmart sales — Tableau</a>
+            <span class="desc">Storytelling dashboard: interpret performance shifts and recommend next bets.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-mag">
+        <button type="button" onclick="toggleDropdown(this)">Policy ▾</button>
+        <div class="dropdown-body">
+          <div class="project-line">
+            <a href="https://drive.google.com/file/d/1eYwPJSnqS3Vyf3_WNritXEcFzAmUFEaL/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View sample report 2</a>
+            <span class="desc">Evidence and interpretation designed for decision-makers and non-technical audiences.</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <script>
+    function toggleDropdown(button) {
+      var row = button.closest(".dropdown-mag");
+      row.classList.toggle("active");
+    }
+    window.addEventListener("click", function (event) {
+      if (!event.target.closest(".dropdown-mag")) {
+        document.querySelectorAll(".dropdown-mag.active").forEach(function (el) {
+          el.classList.remove("active");
+        });
+      }
+    });
+  </script>
 
   <!-- PROJECTS -->
   <section class="container" id="projects" aria-labelledby="projects-heading">
