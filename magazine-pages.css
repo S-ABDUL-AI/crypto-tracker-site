@@ -213,6 +213,16 @@ body.magazine-page {
   color: var(--mag-muted);
 }
 
+/* Small visual cue that the project title is a link */
+.click-indicator {
+  display: inline-block;
+  margin-left: 0.35rem;
+  color: var(--mag-muted);
+  font-weight: 600;
+  font-size: 0.9em;
+  transform: translateY(-1px);
+}
+
 /* —— Sample Work categories —— */
 .sample-category-grid {
   display: grid;
